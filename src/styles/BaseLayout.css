@@ -1,0 +1,12 @@
+.headerBar {
+  width: 100%;
+  background-color: grey;
+  display: flex;
+  
+}
+
+.footerBar {
+  width: 100%;
+  background-color: grey;
+  display: flex;
+}
