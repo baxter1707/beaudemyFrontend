@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import  {Home}  from './components/Home'
 import { BaseLayout } from './components/BaseLayout'
 import {SignUp} from './components/SignUp'
+import {LoginPage} from './components/LoginPage'
+import {TeacherWelcome} from './components/TeacherWelcome'
 
 
 import { createStore, applyMiddleware, compose} from 'redux'
@@ -24,6 +26,8 @@ ReactDOM.render(
     <BaseLayout>
       <Switch>
 
+        <Route path = '/TeacherWelcome' component= {TeacherWelcome} />
+        <Route path = '/LoginPage' component= {LoginPage} />
         <Route path = '/SignUp' component= {SignUp} />
         <Route path = '/' component= {Home} />
 

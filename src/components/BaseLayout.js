@@ -26,7 +26,7 @@ export class Header extends Component {
       </div>
 
       <div className = 'headerLink'>
-        <Link to = '/SignUp' style={{ textDecoration: 'none' }} > Login </Link>
+        <Link to = '/LoginPage' style={{ textDecoration: 'none' }} > Login </Link>
       </div>
 
       </div>

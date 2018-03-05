@@ -1,85 +1,68 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux'
+import {SignUp} from './SignUp'
+import {Link} from 'react-router-dom'
 
 
 export class LoginPage extends Component {
 constructor(props){
 super(props)
 this.state = {
-  firstName :'',
-  lastName:'',
-  email:'',
-  mailingAddress:''
-}
+  email: '',
+  password:''
 
 }
-
-
-handleChangeFirstName = (event) => {
-  this.setState({firstName : event.target.value})
 }
 
-handleChangeLastName = (event) => {
-this.setState({lastName : event.target.value})
-}
 
 handleChangeEmail = (event) => {
-this.setState({email : event.target.value})
+  this.setState({email : event.target.value})
 }
 
-handleChangeAddress = (event) => {
-this.setState({mailingAddress : event.target.value})
+handleChangePassword = (event) => {
+this.setState({password : event.target.value})
 }
 
 
-
-handleSubmit = (event) => {
-  console.log(this.state)
-  event.preventDefault()
-}
 
   render () {
       return (
     <div>
-      <div >
-        <label> First Name </label>
+      <div>
+        <label>Email </label>
         <br />
-        <input type='text' value={this.state.firstName} onChange={this.handleChangeFirstName} />
+        <input type='text' value={this.state.email} onChange={this.handleChangeEmail} />
         <br />
-        <label> Last Name </label>
+        <label> Password </label>
         <br />
-        <input type='text' value={this.state.lastName}
-        onChange={this.handleChangeLastName} />
-        <
+        <input type='password' value={this.state.password}
+        onChange={this.handleChangePassword} />
 
 
+
+
+
         <br />
+        <Link to = '/TeacherWelcome' >
         <button onClick = { () =>
-          axios.post('http://localhost:4000/address', {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+          axios.post('http://localhost:4000/Login', {
             email: this.state.email,
-            mailingAddress: this.state.mailingAddress,
-            itemid : this.props.id
-          }).then(res => alert(res))
+            password: this.state.password
+          }).then(res =>{
+            localStorage.setItem("token", res.data.myToken)
+            console.log(res)
+
+          })
           .catch(err => alert(err))}>Submit</button>
+          </Link>
+          <br />
+            <Link to = '/SignUp' style={{ textDecoration: 'none' }} > Sign Up </Link>
       </div>
     </div>
     )
 
-  }
 
-}
 
-const mapStateToProps = state => {
-  return {
-    honey : state.honey,
-    id : state.id,
-    price : state.price,
-    desc : state.desc,
-    name: state.name
   }
 }
-
-export default connect(mapStateToProps)(LoginPage)
