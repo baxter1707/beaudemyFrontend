@@ -13,18 +13,43 @@ export class ReactFileUpload extends Component {
       super(props);
 
       this.state = {
-        uploadedFileCloudinaryUrl: ''
+        uploadedFileCloudinaryUrl: '',
+        courseName: '',
+        tag: '',
+        courseDescription: ''
       };
     }
 
-    onImageDrop(files) {
-   this.setState({
-     uploadedFile: files[0]
-   });
 
-   this.handleImageUpload(files[0]);
+
+// TEXT BOX UPDATE SECTION //
+ handleChangeCourseName = (event) => {
+   this.setState({courseName : event.target.value})
  }
 
+ handleChangeTag = (event) => {
+   this.setState({tag : event.target.value})
+ }
+
+ handleChangeCourseDesc = (event) => {
+   this.setState({courseDescription : event.target.value})
+ }
+
+
+
+
+
+
+
+
+// IMAGE UPLOAD SECTION //
+ onImageDrop(files) {
+ this.setState({
+  uploadedFile: files[0]
+ });
+
+ this.handleImageUpload(files[0]);
+ }
 
  handleImageUpload(file) {
   let upload = request.post(CLOUDINARY_UPLOAD_URL)
@@ -43,6 +68,9 @@ export class ReactFileUpload extends Component {
     }
   });
 }
+
+
+
 
 
   render() {
@@ -71,11 +99,31 @@ export class ReactFileUpload extends Component {
           <img src={this.state.uploadedFileCloudinaryUrl} />
         </div>}
 
+        <div>
+        <label> Course Name </label>
+        <br />
+        <input type='text' value={this.state.courseName} onChange={this.handleChangeCourseName} />
+        <br />
+
+        <label> Tag </label>
+        <br />
+        <input type='text' value={this.state.tag} onChange={this.handleChangeTag} />
+        <br />
+
+        <label> Description </label>
+        <br />
+        <input type='text' value={this.state.courseDescription} onChange={this.handleChangeCourseDesc} />
+        <br />
+        </div>
+
         <button onClick = { () =>
           axios.post('http://localhost:4000/VideoUpload', {
-            courseName: this.state.uploadedFileCloudinaryUrl,
-            teacherId: teachId
-          }).then(res => alert(res))
+            url: this.state.uploadedFileCloudinaryUrl,
+            teacherId: teachId,
+            courseName: this.state.courseName,
+            tag: this.state.tag,
+            courseDescription: this.state.courseDescription
+          }).then(res => alert("Uploaded!"))
           .catch(err => alert(err))}>Submit</button>
 
       </div>

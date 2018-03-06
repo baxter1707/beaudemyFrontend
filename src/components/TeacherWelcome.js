@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import decode from 'jwt-decode'
 import {FileUpload} from './FileUpload'
 import {ReactFileUpload} from './ReactFileUpload'
+import DisplayVideos from './DisplayVideos'
 
 export class TeacherWelcome extends Component {
 
@@ -26,7 +27,12 @@ export class TeacherWelcome extends Component {
         </div>
 
         <div>
-          <ReactFileUpload/>
+        <div className = 'headerLink'>
+          <Link to = '/ReactFileUpload' style={{ textDecoration: 'none' }} > Upload </Link>
+        </div>
+
+        <DisplayVideos />
+
         </div>
 
       </div>

@@ -1,0 +1,42 @@
+.videoContainer {
+  display: flex;
+
+}
+
+.videoDiv {
+  width: 300px;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.player-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.HomePageVideoContainerDogs {
+  margin: 30px;
+
+}
+
+.HomePageVideoContainerLashes{
+  margin: 30px;
+  background-color: grey;
+}
+
+.HomePageVideoContainerMusic{
+  margin: 30px;
+  background-color: grey;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* .react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */

@@ -9,6 +9,7 @@ import { BaseLayout } from './components/BaseLayout'
 import {SignUp} from './components/SignUp'
 import {LoginPage} from './components/LoginPage'
 import {TeacherWelcome} from './components/TeacherWelcome'
+import {ReactFileUpload} from './components/ReactFileUpload'
 
 
 import { createStore, applyMiddleware, compose} from 'redux'
@@ -26,6 +27,7 @@ ReactDOM.render(
     <BaseLayout>
       <Switch>
 
+        <Route path = '/ReactFileUpload' component= {ReactFileUpload} />
         <Route path = '/TeacherWelcome' component= {TeacherWelcome} />
         <Route path = '/LoginPage' component= {LoginPage} />
         <Route path = '/SignUp' component= {SignUp} />

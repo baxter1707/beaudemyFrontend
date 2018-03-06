@@ -18,7 +18,7 @@ export class Header extends Component {
   render (){
     return(
       <div className = 'headerBar'>
-        <h1>Header Bar</h1>
+        <h1>Beaudemy</h1>
 
 
       <div className = 'headerLink'>
@@ -27,6 +27,14 @@ export class Header extends Component {
 
       <div className = 'headerLink'>
         <Link to = '/LoginPage' style={{ textDecoration: 'none' }} > Login </Link>
+      </div>
+
+      <div>
+      <Link to = '/' >
+        <button onClick = { () =>
+          localStorage.clear()
+        }>Logout</button>
+      </Link>
       </div>
 
       </div>
