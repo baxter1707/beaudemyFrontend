@@ -21,21 +21,28 @@ export class TeacherWelcome extends Component {
     }  catch(err){}
 
     return (
+
+    <div>
+      <div className = 'teacherWelcomeContainer'>
+          <div className = 'teacherWelcomeMessage'>
+          Welcome {teacher}!
+          </div>
+
+          <div className = 'teacherWelcomeMessageLinks'>
+            <Link to = '/ReactFileUpload' className = 'navBarLink' > Upload </Link>
+            <Link to = '/TeacherWelcome' className = 'navBarLink'  > Display Videos </Link>
+          </div>
+      </div>
+
       <div>
-        <div>
-        'Welcome {teacher}!'
-        </div>
 
         <div>
-        <div className = 'headerLink'>
-          <Link to = '/ReactFileUpload' style={{ textDecoration: 'none' }} > Upload </Link>
-        </div>
-
         <DisplayVideos />
-
         </div>
 
       </div>
+
+    </div>
 
     )
   }

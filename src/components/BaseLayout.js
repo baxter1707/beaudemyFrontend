@@ -17,27 +17,37 @@ export class BaseLayout extends Component {
 export class Header extends Component {
   render (){
     return(
-      <div className = 'headerBar'>
-        <h1>Beaudemy</h1>
+    <div>
+          <div className = 'headerNavBar'>
+            <div className = 'leftSideNavBar'>
+              <Link to = '/' className= "navBarLink" > ABOUT BEAUDEMY </Link>
+              <Link to = '/' className= "navBarLink" > IN THE PRESS </Link>
+              <Link to = '/' className= "navBarLink" > HOME </Link>
+            </div>
+
+            <div className = 'rightSideNavBar'>
+              <div className= 'loginLinkDiv'>
+                <Link to = '/LoginPage' className= "navBarLink" > LOGIN </Link>
+              </div>
+              <div className = 'logoutButtonDiv'>
+                <Link to = '/' >
+                  <button className='logoutButton' onClick = { () =>
+                    localStorage.clear()
+                  }>Logout</button>
+              </Link>
+              </div>
+            </div>
+
+          </div>
+          <div className = 'headerBar'>
+            <div className = 'headerBarText'>
+              <img src = 'http://res.cloudinary.com/msbcloud/image/upload/v1521078512/Beaudemy_Logo.jpg'/>
+              <h6> Where beauty is shared </h6>
+            </div>
+          </div>
 
 
-      <div className = 'headerLink'>
-        <Link to = '/' style={{ textDecoration: 'none' }} > Home </Link>
-      </div>
-
-      <div className = 'headerLink'>
-        <Link to = '/LoginPage' style={{ textDecoration: 'none' }} > Login </Link>
-      </div>
-
-      <div>
-      <Link to = '/' >
-        <button onClick = { () =>
-          localStorage.clear()
-        }>Logout</button>
-      </Link>
-      </div>
-
-      </div>
+    </div>
     )
   }
 }

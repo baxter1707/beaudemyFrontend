@@ -3,6 +3,8 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import axios from 'axios'
 import decode from 'jwt-decode'
+import {Link} from 'react-router-dom'
+
 
 const CLOUDINARY_UPLOAD_PRESET = 'vzmg6dzj';
 const CLOUDINARY_UPLOAD_URL = ' https://api.cloudinary.com/v1_1/msbcloud/upload';
@@ -19,6 +21,8 @@ export class ReactFileUpload extends Component {
         courseDescription: ''
       };
     }
+
+
 
 
 
@@ -75,15 +79,30 @@ export class ReactFileUpload extends Component {
 
   render() {
 
+    let teacher = ""
     let teachId = ''
     try {
       const token = localStorage.getItem("token")
       console.log(token)
-        const {uid} =decode(token)
-        teachId = uid
-          }  catch(err){}
+      const { username } = decode(token)
+      const {uid} =decode(token)
+      teacher = username
+      teachId = uid
+      console.log(teacher)
+    }  catch(err){}
     return(
 <div>
+
+<div className = 'teacherWelcomeContainer'>
+    <div className = 'teacherWelcomeMessage'>
+    Welcome {teacher}!
+    </div>
+
+    <div className = 'headerLink'>
+      <Link to = '/ReactFileUpload' className = 'navBarLink' > Upload </Link>
+      <Link to = '/TeacherWelcome' className = 'navBarLink'  > Display Videos </Link>
+    </div>
+</div>
 
       <Dropzone
         multiple={false}

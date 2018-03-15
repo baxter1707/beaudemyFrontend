@@ -1,34 +1,44 @@
 .videoContainer {
   display: flex;
+  flex-wrap: wrap;
 
 }
 
+
+
 .videoDiv {
-  width: 300px;
   text-align: center;
   justify-content: center;
+  margin: 1% auto 1% auto;
+  padding:1%;
+  width: 20%;
+  height: 200px;
+  display: flex;
+  flex-grow: 0;
+  flex-direction: column;
+  font-size: .7em;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 
+}
+
+.studentWelcomeVideoTitle {
+  margin-left: 5%;
+}
+
+.videoDiv:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .player-wrapper {
-  margin-left: auto;
-  margin-right: auto;
+  width: 70%
 
 }
+.studentWelcomeVideoContainer {
+  margin: 1em 0 0 0;
+  border-bottom: solid;
+  padding-bottom: 1em;
 
-.HomePageVideoContainerDogs {
-  margin: 30px;
-
-}
-
-.HomePageVideoContainerLashes{
-  margin: 30px;
-  background-color: grey;
-}
-
-.HomePageVideoContainerMusic{
-  margin: 30px;
-  background-color: grey;
 }
 
 li {

@@ -1,0 +1,11 @@
+.moreInfoVideoDiv {
+  display: flex;
+  width: 100%
+}
+
+.moreInfoInformationDiv {
+  .display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: 30%;
+}

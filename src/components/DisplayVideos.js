@@ -32,18 +32,18 @@ export class DisplayVideos extends Component {
     let jsonVideos = this.props.videos.map((video)=> {
           if(video.teacherId == teachId) {
       return ( <div className= 'videoDiv' key = {video.id}>
-        <li className='courseName'> {video.courseName} </li>
-        <li className='courseDesc'> {video.courseDescription}</li>
-        <ReactPlayer url={video.url}  controls/>
+        <img src = "http://res.cloudinary.com/msbcloud/image/upload/v1521061143/Untitled_1.jpg" />
+        <span className='courseName'> {video.courseName} </span>
+        <br>
+        </br>
+        <br>
+        </br>
       </div>)}
     })
 
 
     return (
     <div>
-      <div>
-        Display All Teacher Videos
-      </div>
 
       <div className = 'videoContainer'>
             {jsonVideos}

@@ -1,0 +1,14 @@
+.teacherWelcomeContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  border-bottom: solid;
+  border-top: solid;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.teacherWelcomeMessage {
+
+}

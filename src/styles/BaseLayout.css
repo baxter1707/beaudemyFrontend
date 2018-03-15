@@ -1,12 +1,70 @@
 .headerBar {
   width: 100%;
-  background-color: grey;
   display: flex;
-  
+
+}
+
+.headerBarText {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.headerBarText img {
+  margin-top: 1em;
+  width: 40%;
+  height: 70%;
+}
+
+.headerBarText h6 {
+  margin-top: 0;
+  margin-bottom: .5em;
 }
 
 .footerBar {
   width: 100%;
-  background-color: grey;
+    background-color: rgb(222,218,214);
   display: flex;
+}
+
+.headerNavBar {
+  width: 100%;
+  background-color: rgb(222,218,214);
+  display: flex;
+  padding: .3em;
+}
+
+.navBarLink {
+  text-decoration: none;
+  font-size: .5em;
+  margin: 2%;
+  color: rgb(124, 117, 114);
+
+
+  }
+
+.navBarLink:hover {
+  color: hotpink;
+}
+
+.leftSideNavBar {
+  display: flex;
+  width: 50%;
+}
+
+.rightSideNavBar{
+  width: 50%;
+  display: flex;
+}
+
+.logoutButtonDiv {
+  position:fixed;
+     right:10px;
+
+}
+
+.loginLinkDiv {
+  text-align: center;
+  position: fixed;
+  right: 80px;
 }

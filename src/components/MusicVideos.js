@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import { loadTeacherVideos } from '../store/actions'
 import * as actionTypes from '../store/actions'
 import ReactPlayer from 'react-player'
+import SubscribeButton from './SubscribeButton'
+import { postStudentVideo } from '../store/actions'
+import MoreInfoButton from './MoreInfoButton'
 
 export class MusicVideos extends Component {
 
@@ -17,40 +20,32 @@ export class MusicVideos extends Component {
   }
 
   render() {
-    let teacher = ""
-    let teachId = ''
+    let student = ""
+    let studentid = ''
     try {
       const token = localStorage.getItem("token")
       const { username } = decode(token)
       const {uid} =decode(token)
-      teacher = username
-      teachId = uid
-      console.log(teacher)
+      student = username
+      studentid = uid
     }  catch(err){}
 
 
     let jsonVideos = this.props.videos.map((video)=> {
-        if(video.tag === "Music") {
+        if(video.tag === "Eyebrows" && video.teacherId) {
       return ( <div className= 'videoDiv' key = {video.id}>
+        <img src = "http://res.cloudinary.com/msbcloud/image/upload/v1521061143/Untitled_1.jpg" />
         <li className='courseName'> {video.courseName} </li>
-        <div className='player-wrapper'>
-       <ReactPlayer
-         className='react-player'
-         url={video.url}
-         width='50%'
-         height='50%'
-         controls
-       />
-        </div>
-        <li className='courseDesc'> {video.courseDescription}</li>
+        <SubscribeButton onSubscribeClick = {() => this.props.onSubscribeVideo( video.courseName,studentid,video.tag,video.courseDescription,video.url)} />
+        <MoreInfoButton id={video.id} onMoreInfoClick = {() => this.props.onMoreInfo(video.id, video.courseName,studentid,video.tag,video.courseDescription,video.url)} />
       </div>)}
     })
 
 
     return (
     <div>
-      <div>
-        Music Videos
+      <div className = 'studentWelcomeVideoTitle'>
+        Eyebrow Videos
       </div>
 
       <div className = 'videoContainer'>
@@ -72,6 +67,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onVideoListLoad : () => dispatch(loadTeacherVideos()),
+
+    onSubscribeVideo : (studentid, courseName, tag,courseDescription,url) => dispatch(postStudentVideo(studentid, courseName, tag, courseDescription,url)),
+
+    onMoreInfo : (id, studentid, courseName, tag,courseDescription,url) => dispatch({type : actionTypes.MORE_INFO, id:id, studentid : studentid, courseName:courseName, tag:tag, courseDescription:courseDescription, url:url})
   }
 }
 
